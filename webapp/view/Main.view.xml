@@ -1,0 +1,63 @@
+<mvc:View controllerName="money.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns:u="sap.ui.unified"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:table="sap.ui.table"
+    xmlns="sap.m">
+    <f:DynamicPage>
+        <f:title>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader >
+                <f:content>
+                    <fb:FilterBar >
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <VBox>
+                <table:Table 
+                    id="MoneyTable" 
+                    rows="{headModel>/}"
+                    rowActionCount="1">
+                    <table:extension>
+                        <OverflowToolbar >
+                            <Title text="가계부"/>
+                            <ToolbarSpacer />
+                            <Button text="생성" press="onCreate" />
+                            <Button text="삭제" press="onDelete" />
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:rowActionTemplate>
+                        <table:RowAction>
+                            <table:RowActionItem type="Navigation" press="onMove"></table:RowActionItem>
+                        </table:RowAction>
+                    </table:rowActionTemplate>
+                    <table:columns>
+                        <table:Column >
+                            <Text text="년월" />
+                            <table:template>
+                                <Text text="{headModel>Yearmonth}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column >
+                            <Text text="총합" />
+                            <table:template>
+                                <u:Currency stringValue="{headModel>AmountSum}" currency="{headModel>SumUnit}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column >
+                            <Text text="만든사람" />
+                            <table:template>
+                                <Text text="{headModel>Createdby}" />
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </VBox>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

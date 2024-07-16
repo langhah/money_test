@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Currency"
+		items="{helpModel>/}"
+		search="_handleValueHelpSearch"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose">
+		<StandardListItem
+			title="{helpModel>Currency}"
+			description="{helpModel>CurrencyName}" />
+	</SelectDialog>
+</core:FragmentDefinition>
