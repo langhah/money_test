@@ -27,7 +27,7 @@
                         <OverflowToolbar >
                             <Title text="가계부"/>
                             <ToolbarSpacer />
-                            <Button text="생성" press="onCreate" />
+                            <Button text="생성" press="onCreate"  type="Emphasized"/>
                             <Button text="삭제" press="onDelete" />
                         </OverflowToolbar>
                     </table:extension>
@@ -37,7 +37,7 @@
                         </table:RowAction>
                     </table:rowActionTemplate>
                     <table:columns>
-                        <table:Column >
+                        <table:Column id = "Yearmonth" sortProperty="Yearmonth">
                             <Text text="년월" />
                             <table:template>
                                 <Text text="{headModel>Yearmonth}" />

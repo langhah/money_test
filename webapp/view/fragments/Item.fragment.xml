@@ -13,15 +13,10 @@
             <table:extension>
                 <OverflowToolbar >
                     <ToolbarSpacer />
-                    <Button text="생성" press="onCreate" type="Emphasized"/>
-                    <Button text="삭제" press="onDelete" />
+                    <Button id="Create" visible="{uiModel>/Group1}" text="생성" press="onCreate" type="Emphasized"/>
+                    <Button id="DeleteNew" visible="{uiModel>/Group1}" text="삭제" press="onDelete" />
                 </OverflowToolbar>
             </table:extension>
-            <table:rowActionTemplate>
-                <table:RowAction>
-                    <table:RowActionItem type="Navigation" press="onMove"></table:RowActionItem>
-                </table:RowAction>
-            </table:rowActionTemplate>
             <table:columns>
                 <table:Column >
                     <Text text="구분" />
@@ -30,6 +25,7 @@
                         width="100%"
                         forceSelection="false"
                         selectedKey="{itemModel>Gubun}"
+                        editable="{uiModel>/Group1}"
                         items="{ 
                             path: 'selectModel>/'
                         }">
@@ -40,29 +36,30 @@
                 <table:Column >
                     <Text text="제목" />
                     <table:template>
-                        <Input value="{itemModel>Title}" />
+                        <Input value="{itemModel>Title}" editable="{uiModel>/Group1}" />
                     </table:template>
                 </table:Column>
                 <table:Column >
                     <Text text="내용" />
                     <table:template>
-                        <Input value="{itemModel>Content}" />
+                        <Input value="{itemModel>Content}" editable="{uiModel>/Group1}"/>
                     </table:template>
                 </table:Column>
                 <table:Column >
                     <Text text="금액" />
                     <table:template>
-                        <Input value="{itemModel>Amount}" />
+                        <Input value="{itemModel>Amount}" editable="{uiModel>/Group1}"/>
                     </table:template>
                 </table:Column>
-                <!-- <table:Column >
+                <table:Column >
                     <Text text="화폐단위" />
                     <table:template>
                         <Input value="{itemModel>Unit}" 
+                               editable="{uiModel>/Group1}"
                                showValueHelp="true"
 				               valueHelpRequest="handleValueHelp"/>
                     </table:template>
-                </table:Column> -->
+                </table:Column>
             </table:columns>
         </table:Table>
     </VBox>

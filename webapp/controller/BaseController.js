@@ -156,9 +156,9 @@ sap.ui.define([
          this.getRouter().navTo(psTarget, pmParameters);
       },
 
-        setProperty: function (sModelName, sPropertyName, value) {
+      setProperty: function (sModelName, sPropertyName, value) {
             this.getModel(sModelName).setProperty(`/${sPropertyName}`, value);
-        }
+      }
 
     });
 

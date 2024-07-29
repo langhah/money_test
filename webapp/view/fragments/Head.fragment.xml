@@ -8,6 +8,7 @@
     xmlns:uxap="sap.uxap"
     height="100%">
     <VBox>
+	
         <f:SimpleForm id="InsuranceEdit"
 			editable="true"
 			layout="ColumnLayout"
@@ -17,18 +18,16 @@
 			>
 			<f:content>
 				<core:Title text="가계부 상세페이지" />
-				<Label text="기입 연월" labelFor="DP10"/>
+				<Label text="기입 연월" labelFor="Yearmonth"/>
 				<DatePicker
-					id="DP10"
+					id="Yearmonth"
 					value="{
-						'path': '{/headModel>Yearmonth}',
-						'type': 'sap.ui.model.type.Date',
-						'formatOptions': {
-							'pattern': 'yMM'
-						}
+						'path': 'headModel>/Yearmonth'
 					}"
 					change="handleChange"
 					class="sapUiSmallMarginBottom"
+					width="150px"
+					editable="{uiModel>/Group2}"
 					displayFormat="yyyyMM"/>
 			</f:content>
 		</f:SimpleForm>

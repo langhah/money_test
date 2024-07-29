@@ -11,7 +11,9 @@
         <footer>
             <Toolbar>
                 <ToolbarSpacer></ToolbarSpacer>
-                <Button text= "저장" icon= "sap-icon://save" press = ".onSave" type = "Emphasized" ></Button>
+                <Button id="SaveButton" text= "저장" icon= "sap-icon://save" visible="{uiModel>/Group2}" press = ".onSave" type = "Emphasized" ></Button>
+                <Button id="EditButton" text= "수정" icon= "sap-icon://edit" visible="{uiModel>/Group3}" press = ".onEdit" type = "Emphasized" ></Button>
+                <Button id="UpdateButton" text= "수정저장" visible="{uiModel>/Group4}" icon= "sap-icon://save" press = ".onUpdate" type = "Emphasized" ></Button>
             </Toolbar>    
         </footer>
     </Page>

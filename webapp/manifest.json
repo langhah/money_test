@@ -117,7 +117,7 @@
         },
         {
           "name": "Detail",
-          "pattern": "Detail/:test:",
+          "pattern": "Detail/:Uuid:",
           "target": [
             "Detail"
           ]

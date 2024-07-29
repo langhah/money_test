@@ -3,7 +3,7 @@
 	xmlns:core="sap.ui.core">
 	<SelectDialog
 		title="Currency"
-		items="{helpModel>/}"
+		items="{ path : 'helpModel>/', length : 300 }"
 		search="_handleValueHelpSearch"
 		confirm="_handleValueHelpClose"
 		cancel="_handleValueHelpClose">
