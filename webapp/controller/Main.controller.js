@@ -47,5 +47,10 @@ function (Controller, JSONModel, MessageToast, DateFormat, UIComponent) {
             this.navTo("Detail", {});
         },
 
+        onMove: function() {
+            this.navTo("Detail2", {});
+        },
+
+
     });
 });
