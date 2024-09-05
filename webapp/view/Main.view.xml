@@ -5,6 +5,10 @@
     xmlns:f="sap.f"
     xmlns:fb="sap.ui.comp.filterbar"
     xmlns:table="sap.ui.table"
+    xmlns:columnmenu="sap.m.table.columnmenu"
+    xmlns:sap.ui.fl="sap.ui.fl"
+    xmlns:sap.ui.dt="sap.ui.dt"
+    xmlns:vm="sap.ui.fl.variants"
     xmlns="sap.m">
     <f:DynamicPage>
         <f:title>
@@ -22,35 +26,49 @@
                 <table:Table 
                     id="MoneyTable" 
                     rows="{headModel>/}"
-                    rowActionCount="1">
+                    rowActionCount="1" sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
+                    sort="onSort" columnResize="onColumnResize" columnMove="onColumnMove" rowMode="Auto" 
+                    ariaLabelledBy="title">
                     <table:extension>
                         <OverflowToolbar >
-                            <Title text="가계부"/>
+                            <Title id="title" text="가계부"/>
                             <ToolbarSpacer />
                             <Button text="생성" press="onCreate"  type="Emphasized"/>
                             <Button text="삭제" press="onDelete" />
+                            <ToolbarSeparator/>
                         </OverflowToolbar>
                     </table:extension>
+                    <table:dependents>
+                        <columnmenu:Menu id="menu">
+                            <columnmenu:items>
+                                <columnmenu:ActionItem icon="sap-icon://sort" label="Sort" press="onColumnHeaderItemPress"/>
+                                <columnmenu:ActionItem icon="sap-icon://table-column" label="Columns" press="onColumnHeaderItemPress"/>
+                            </columnmenu:items>
+                        </columnmenu:Menu>
+                    </table:dependents>
+                    <table:noData>
+                        <IllustratedMessage enableVerticalResponsiveness="true"/>
+                    </table:noData>
                     <table:rowActionTemplate>
                         <table:RowAction>
                             <table:RowActionItem type="Navigation" press="onMove"></table:RowActionItem>
                         </table:RowAction>
                     </table:rowActionTemplate>
                     <table:columns>
-                        <table:Column id = "Yearmonth" sortProperty="Yearmonth">
+                        <table:Column id = "Yearmonth" sortProperty="Yearmonth" autoResizable="true" headerMenu="menu" resizable="true">
                             <Text text="년월" />
                             <table:template>
                                 <Text text="{headModel>Yearmonth}" />
                             </table:template>
                         </table:Column>
-                        <table:Column >
-                            <Text text="총합" />
+                        <table:Column id = "AmountSum"  sortProperty="AmountSum" autoResizable="true" headerMenu="menu" resizable="true"  >
+                            <Text text="총합"/>
                             <table:template>
                                 <u:Currency stringValue="{headModel>AmountSum}" currency="{headModel>SumUnit}" />
                             </table:template>
                         </table:Column>
-                        <table:Column >
-                            <Text text="만든사람" />
+                        <table:Column id = "Createdby"  sortProperty="Createdby" autoResizable="true" headerMenu="menu" resizable="true" >
+                            <Text text="만든사람"/>
                             <table:template>
                                 <Text text="{headModel>Createdby}" />
                             </table:template>

@@ -9,8 +9,6 @@ sap.ui.define([
 function (Controller, JSONModel, MessageToast, DateFormat, UIComponent, library) {
     "use strict";
 
-    const SortOrder = library.SortOrder;
-
     return Controller.extend("money.controller.Main", {
         onInit: function () {
             
@@ -36,9 +34,10 @@ function (Controller, JSONModel, MessageToast, DateFormat, UIComponent, library)
 
                 this.setModel(new JSONModel(aGetData), "headModel")
 
-                //Initial sorting
-                const oYearmonthColumn = this.getView().byId("Yearmonth");
-                this.getView().byId("MoneyTable").sort(oYearmonthColumn, SortOrder.Ascending);
+                // //Initial sorting
+                // const oYearmonthColumn = this.getView().byId("Yearmonth");
+                // this.getView().byId("MoneyTable").sort(oYearmonthColumn, SortOrder.Ascending);
+
      
             }.bind(this)).fail(function(){
                 MessageBox.information("Read Fail");
@@ -84,7 +83,6 @@ function (Controller, JSONModel, MessageToast, DateFormat, UIComponent, library)
 
             } 
 
-            // debugger;
             $.when.apply($, callArray)
             .fail(function(oError){ 
             var sMessage = "";
